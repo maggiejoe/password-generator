@@ -19,24 +19,22 @@ var generatePassword = function () {
   var confirmUppercase = window.confirm("Would you like upper case characters in your password?");
   var confirmNumeric = window.confirm("Would you like numbers in your password?");
   var confirmSpecialChar = window.confirm("Would you like special characters in your password?"); 
-  var confirmLength = window.prompt("How long would you like your password to be? Please choose a length between 8 and 128 characters.");
+  var confirmLength = parseInt(window.prompt("How long would you like your password to be? Please choose a length between 8 and 128 characters."));
   
   if (confirmLowercase = true) { // ??then add to for loop to generate the password??
     // insert more if statements to put action to the user selection of what criteria they would like for their password
     };
 
-  var lengthConfirmation = function () {
   
     if (confirmLength >= 8 || confirmLength <= 128) {
       window.alert("Thank you for your submissions! Your password will be shown below!");
     } else {
       window.alert("You must choose a length between 8 and 128 characters. Please try again.");
-      while (confirmLength <=7 || confirmLength >=129) {
+    } while (confirmLength <=7 || confirmLength >=129) {
         return lengthConfirmation();
       }
     };
-  };
-}
+
    // (while loop to be able to jump out if possible)need to add a loop that continues to ask this question until a correct number is selected. currently if the user chooses
     // a character length incorrectly more than once, it does not ask them to try again
 
