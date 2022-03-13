@@ -1,7 +1,7 @@
 // Variables representing all the criteria necessary for generating a secure password
 var lowercase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-var numberic = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+var numeric = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 var specialChar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", ",", "<", ".", ">", "/", "?"];
 
 // Variables representing if the user confirming if they do or do not want certain criteria in their password
@@ -60,19 +60,27 @@ var generatePassword = function () {
       generatePassword();
     }
 
-
+    var passwordSelections = []
+    if (confirmLowercase) {
+      passwordSelections += lowercase; 
+    }
+    if (confirmUppercase) {
+      passwordSelections += uppercase;
+    }
+    if (confirmNumeric) {
+      passwordSelections += numeric;
+    }
+    if (confirmSpecialChar) {
+      passwordSelections += specialChar;
+    }
  
 
   var finalPassword = "";
   for (i = 0; i < passwordSelections; i++) {
-    var selections = Math.floor(Math.random() * passwordSelections.confirmLength);
+    var selections = Math.floor(Math.random() * passwordSelections.length);
     finalPassword += passwordSelections[selections];
   }
-
-
 }
-
-
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
