@@ -82,7 +82,10 @@ var generatePassword = function () {
   var finalPassword = "";
   for (var i = 0; i < passwordSelections; i++) {
     finalPassword = Math.floor(Math.random() * passwordSelections.length);
+    
+    return finalPassword;
   };
+
 }
 
 // Write password to the #password input
