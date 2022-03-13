@@ -64,28 +64,27 @@ var generatePassword = function () {
 
   // any user promts that are ok(true) are added to this variable to create the password
   var passwordSelections = [];
-  console.log(passwordSelections);
   if (confirmLowercase) {
-    passwordSelections += lowercase; 
+    passwordSelections = passwordSelections.concat(lowercase); 
   }
   if (confirmUppercase) {
-    passwordSelections += uppercase;
+    passwordSelections = passwordSelections.concat(uppercase);
   }
   if (confirmNumeric) {
-    passwordSelections += numeric;
+    passwordSelections = passwordSelections.concat(numeric);
   }
   if (confirmSpecialChar) {
-    passwordSelections += specialChar;
+    passwordSelections = passwordSelections.concat(specialChar);
   }
   
   // for loop that outputs the password
   var finalPassword = "";
-  for (var i = 0; i < passwordSelections; i++) {
-    finalPassword = Math.floor(Math.random() * passwordSelections.length);
-    
-    return finalPassword;
+  for (var i = 0; i < confirmLength; i++) {
+    finalPassword += Math.floor(Math.random() * passwordSelections.length);
+
   };
 
+  return finalPassword;
 }
 
 // Write password to the #password input
