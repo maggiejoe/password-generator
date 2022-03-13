@@ -11,79 +11,80 @@ var confirmNumeric = confirmNumeric;
 var confirmSpecialChar = confirmSpecialChar;
 var confirmLength = confirmLength;
 
-// generate password beginning with asking the user what criteria they would like in their password
+// Get references to the #generate element
+var generateBtn = document.querySelector("#generate");
 
 var generatePassword = function () {
   console.log(generatePassword);
 
+  // Beginning of prompts
   window.alert("Please answer the following questions to generate your password!");
 
   var confirmLength = parseInt(window.prompt("How long would you like your password to be? Please choose a length between 8 and 128 characters."));
-    // Why doesn't confirmLength "" and "null" not work right now?
+  // ?? Why doesn't confirmLength "" and "null" not work right now?
+  // length confirmation
   if (confirmLength <= 7 || confirmLength >= 129 || confirmLength == "" || confirmLength == "null") {
       window.alert("You must choose a length between 8 and 128 characters. Please try again.");
       generatePassword();
     }
   
-    window.confirm("Your password will be " + confirmLength + " characters long.");
-    confirmLength = parseInt(confirmLength);
+  window.confirm("Your password will be " + confirmLength + " characters long.");
+  confirmLength = parseInt(confirmLength);
 
-    // change else to give the user an option to go back and change their selection
-    // EX. window.confirm("Your password will not have 'lower case' characters in it. Would you like to go back and change that?")
-    var confirmLowercase = window.confirm("Would you like 'lower case' characters in your password?");
-      if (confirmLowercase) {
-        window.alert("Your password will have 'lower case' characters in it");
-      } else {
-        window.alert("Your password will not have 'lower case' characters in it");
+  // Confirming criteria with the user
+  var confirmLowercase = window.confirm("Would you like 'lower case' characters in your password?");
+    if (confirmLowercase) {
+      window.alert("Your password will have 'lower case' characters in it");
+    } else {
+      window.alert("Your password will not have 'lower case' characters in it");
+    }
+  var confirmUppercase = window.confirm("Would you 'like upper' case characters in your password?");
+    if (confirmUppercase) {
+      window.alert("Your password will have 'upper case' characters in it");
+    } else {
+      window.alert("Your password will not have 'upper case' characters in it");
+    }
+  var confirmNumeric = window.confirm("Would you like 'numbers' in your password?");
+    if (confirmNumeric) {
+      window.alert("Your password will have 'numbers' in it");
+    } else {
+      window.alert("Your password will not have 'numbers' in it");
+    }
+  var confirmSpecialChar = window.confirm("Would you like 'special characters' in your password?"); 
+    if (confirmSpecialChar) {
+      window.alert("Your password will have 'special characters' in it");
+    } else {
+        window.alert("Your password will not have 'special characters' in it");
       }
-    var confirmUppercase = window.confirm("Would you 'like upper' case characters in your password?");
-      if (confirmUppercase) {
-        window.alert("Your password will have 'upper case' characters in it");
-      } else {
-        window.alert("Your password will not have 'upper case' characters in it");
-      }
-    var confirmNumeric = window.confirm("Would you like 'numbers' in your password?");
-      if (confirmNumeric) {
-        window.alert("Your password will have 'numbers' in it");
-      } else {
-        window.alert("Your password will not have 'numbers' in it");
-      }
-    var confirmSpecialChar = window.confirm("Would you like 'special characters' in your password?"); 
-      if (confirmSpecialChar) {
-        window.alert("Your password will have 'special characters' in it");
-      } else {
-          window.alert("Your password will not have 'special characters' in it");
-        }
     
+    // If all criteria is not chosen(false), alert the user they must choose at least one seleciton
     while ( (confirmLowercase === false) && (confirmUppercase === false) && (confirmNumeric === false) && (confirmSpecialChar === false) ) {
       window.alert("You must select at least one of the password criteria. Please try again.");
       generatePassword();
     }
 
-    var passwordSelections = []
-    if (confirmLowercase) {
-      passwordSelections += lowercase; 
-    }
-    if (confirmUppercase) {
-      passwordSelections += uppercase;
-    }
-    if (confirmNumeric) {
-      passwordSelections += numeric;
-    }
-    if (confirmSpecialChar) {
-      passwordSelections += specialChar;
-    }
- 
-
+  // any user promts that are ok(true) are added to this variable to create the password
+  var passwordSelections = [];
+  if (confirmLowercase) {
+    passwordSelections += lowercase; 
+  }
+  if (confirmUppercase) {
+    passwordSelections += uppercase;
+  }
+  if (confirmNumeric) {
+    passwordSelections += numeric;
+  }
+  if (confirmSpecialChar) {
+    passwordSelections += specialChar;
+  }
+  
+  // for loop that outputs the password
   var finalPassword = "";
-  for (i = 0; i < passwordSelections; i++) {
-    var selections = Math.floor(Math.random() * passwordSelections.length);
-    finalPassword += passwordSelections[selections];
+  for (var i = 0; i < passwordSelections; i++) {
+    var finalPassword = Math.floor(Math.random() * confirmLength.length);
+    finalPassword += passwordSelections[finalPassword];
   }
 }
-
-// Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
@@ -91,7 +92,6 @@ function writePassword() {
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 // Add event listener to generate button
