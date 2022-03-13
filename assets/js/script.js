@@ -16,25 +16,45 @@ var confirmLength;
 var generatePassword = function () {
   console.log(generatePassword);
 
+  window.alert("Please answer the following questions to generate your password!");
+
   var confirmLength = parseInt(window.prompt("How long would you like your password to be? Please choose a length between 8 and 128 characters."));
     if (confirmLength <= 7 || confirmLength >= 129) {
       window.alert("You must choose a length between 8 and 128 characters. Please try again.");
       generatePassword();
-    } 
+    }
   
-      var confirmLowercase = window.confirm("Would you like lower case characters in your password?");
-      var confirmUppercase = window.confirm("Would you like upper case characters in your password?");
-      var confirmNumeric = window.confirm("Would you like numbers in your password?");
-      var confirmSpecialChar = window.confirm("Would you like special characters in your password?"); 
-      
-      if (confirmLowercase = true) { // ??then add to for loop to generate the password??
-        // insert more if statements to put action to the user selection of what criteria they would like for their password
-        };
-};
+    window.confirm("Your password will be " + confirmLength + " characters long.");
+    confirmLength = parseInt(confirmLength);
 
-   // (while loop to be able to jump out if possible)need to add a loop that continues to ask this question until a correct number is selected. currently if the user chooses
-    // a character length incorrectly more than once, it does not ask them to try again
-
+    // change else to give the user an option to go back and change their selection
+    // EX. window.confirm("Your password will not have 'lower case' characters in it. Would you like to go back and change that?")
+    var confirmLowercase = window.confirm("Would you like 'lower case' characters in your password?");
+      if (confirmLowercase) {
+        window.alert("Your password will have 'lower case' characters in it");
+      } else {
+        window.alert("Your password will not have 'lower case' characters in it");
+      }
+    var confirmUppercase = window.confirm("Would you 'like upper' case characters in your password?");
+      if (confirmUppercase) {
+        window.alert("Your password will have 'upper case' characters in it");
+      } else {
+        window.alert("Your password will not have 'upper case' characters in it");
+      }
+    var confirmNumeric = window.confirm("Would you like 'numbers' in your password?");
+      if (confirmNumeric) {
+        window.alert("Your password will have 'numbers' in it");
+      } else {
+        window.alert("Your password will not have 'numbers' in it");
+      }
+    var confirmSpecialChar = window.confirm("Would you like 'special characters' in your password?"); 
+      if (confirmSpecialChar) {
+        window.alert("Your password will have 'special characters' in it");
+      }else {
+          window.alert("Your password will not have 'special characters' in it");
+        }
+   
+}
 
 
 
