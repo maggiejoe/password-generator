@@ -5,11 +5,11 @@ var numberic = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 var specialChar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", ",", "<", ".", ">", "/", "?"];
 
 // Variables representing if the user confirming if they do or do not want certain criteria in their password
-var confirmLowercase;
-var confirmUppercase;
-var confirmNumeric;
-var confirmSpecialChar;
-var confirmLength;
+var confirmLowercase = confirmLength;
+var confirmUppercase = confirmUppercase;
+var confirmNumeric = confirmNumeric;
+var confirmSpecialChar = confirmSpecialChar;
+var confirmLength = confirmLength;
 
 // generate password beginning with asking the user what criteria they would like in their password
 
@@ -59,12 +59,18 @@ var generatePassword = function () {
       window.alert("You must select at least one of the password criteria. Please try again.");
       generatePassword();
     }
+
+
+ 
+
+  var finalPassword = "";
+  for (i = 0; i < passwordSelections; i++) {
+    var selections = Math.floor(Math.random() * passwordSelections.confirmLength);
+    finalPassword += passwordSelections[selections];
+  }
+
+
 }
-
-// var generatePassword = function() {
-// take the confirmations true statements and put them into a password
-// do not add cancelled/false selections
-
 
 
 
