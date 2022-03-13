@@ -81,8 +81,8 @@ var generatePassword = function () {
   // for loop that outputs the password
   var finalPassword = "";
   for (var i = 0; i < passwordSelections; i++) {
-    var finalPassword = Math.floor(Math.random() * confirmLength.length);
-    finalPassword += passwordSelections[finalPassword];
+    var userPassword = Math.floor(Math.random() * confirmLength.length);
+    finalPassword += passwordSelections[userPassword];
   }
 }
 
