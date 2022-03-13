@@ -4,13 +4,6 @@ var uppercase = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"
 var numeric = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 var specialChar = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+", ",", "<", ".", ">", "/", "?"];
 
-// Variables representing if the user confirming if they do or do not want certain criteria in their password
-var confirmLowercase = confirmLength;
-var confirmUppercase = confirmUppercase;
-var confirmNumeric = confirmNumeric;
-var confirmSpecialChar = confirmSpecialChar;
-var confirmLength = confirmLength;
-
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
@@ -62,9 +55,16 @@ var generatePassword = function () {
       window.alert("You must select at least one of the password criteria. Please try again.");
       generatePassword();
     }
+  
+  confirmLowercase = confirmLowercase;
+  confirmUppercase = confirmUppercase;
+  confirmNumeric = confirmNumeric;
+  confirmSpecialChar = confirmSpecialChar;
+  confirmLength = confirmLength;
 
   // any user promts that are ok(true) are added to this variable to create the password
   var passwordSelections = [];
+  console.log(passwordSelections);
   if (confirmLowercase) {
     passwordSelections += lowercase; 
   }
@@ -81,9 +81,8 @@ var generatePassword = function () {
   // for loop that outputs the password
   var finalPassword = "";
   for (var i = 0; i < passwordSelections; i++) {
-    var userPassword = Math.floor(Math.random() * confirmLength.length);
-    finalPassword += passwordSelections[userPassword];
-  }
+    finalPassword = Math.floor(Math.random() * passwordSelections.length);
+  };
 }
 
 // Write password to the #password input
