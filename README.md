@@ -2,15 +2,26 @@
 
 
 ## Description
+This password generator spits out a password based on prompts asking the user to confirm what criteria they would like in their password.
 
 
 ## Challenges
 
+My biggest challenge was putting the for loop together. With some assistance from the BCS they helped me realize I was missing an index variable. Once I added that, my password generated not only numbers but all the criteria.
+
+Another challenge was with asking for the password length from the user. If the user doesn't put in any character number and leaves it empty, I tried to prompt the user that "" or null is not a valid input. I was unable to figure out how to correct this issue right away and will be working on figuring this out and re-sbumitting. 
+
+I am taking steps to understand JavaScript better outside of class by taking free online courses in addition to reviewing the resources material provided by the TA's.
+
 
 ## Deployment Link
+https://maggiejoe.github.io/password-generator/
 
 
 ## Citation
+I used the bootcamp module in addition to the robot gladiators program as a reference. 
+
+I was intoduced to `concat` from an learning assistant with the BCS and he explained what it was and its uses.
 
 
 # Challenge #3 Criteria
@@ -18,17 +29,17 @@
 
 ## Technical Acceptance
 
-* Create a randomly generated password for greater password security
-* When the generate password button is clicked, the user is presented with prompts for password criteria
-* The user then has the ability to select the criteria
-* Once password criteria is selected, a prompted is presented asking the user the length of the length of the password. The password length must be between 8 and 128 characters
-* When character types are asked to be included in the password, the user has the ability click on whether or not to include the following:
+* :white_check_mark: Create a randomly generated password for greater password security
+* :white_check_mark: When the generate password button is clicked, the user is presented with prompts for password criteria
+* :white_check_mark: The user then has the ability to select the criteria
+* :white_check_mark: Once password criteria is selected, a prompted is presented asking the user the length of the length of the password. The password length must be between 8 and 128 characters
+* :white_check_mark: When character types are asked to be included in the password, the user has the ability click on whether or not to include the following:
     * lowercase
     * uppercase
     * numeric
     * special characters
-* When the prompts are answered, the inputs should be validated and at least one character type is selected
-* Following all prompts, a password is generated that matches the selected criteria and is displayed in an alert or written on the page
+* :white_check_mark: When the prompts are answered, the inputs should be validated and at least one character type is selected
+* :white_check_mark: Following all prompts, a password is generated that matches the selected criteria and is displayed in an alert or written on the page
 
 
 ## Deployment
