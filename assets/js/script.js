@@ -14,9 +14,8 @@ var generatePassword = function () {
   window.alert("Please answer the following questions to generate your password!");
 
   var confirmLength = parseInt(window.prompt("How long would you like your password to be? Please choose a length between 8 and 128 characters."));
-  // ?? Why doesn't confirmLength "" and "null" not work right now?
   // length confirmation
-  if (confirmLength <= 7 || confirmLength >= 129 || confirmLength == "" || confirmLength == "null") {
+  if (confirmLength <= 7 || confirmLength >= 129 || confirmLength == "") {
       window.alert("You must choose a length between 8 and 128 characters. Please try again.");
       generatePassword();
     }
@@ -55,12 +54,6 @@ var generatePassword = function () {
       window.alert("You must select at least one of the password criteria. Please try again.");
       generatePassword();
     }
-  
-  confirmLowercase = confirmLowercase;
-  confirmUppercase = confirmUppercase;
-  confirmNumeric = confirmNumeric;
-  confirmSpecialChar = confirmSpecialChar;
-  confirmLength = confirmLength;
 
   // any user promts that are ok(true) are added to this variable to create the password
   var passwordSelections = [];
@@ -77,7 +70,7 @@ var generatePassword = function () {
     passwordSelections = passwordSelections.concat(specialChar);
   }
   
-  // for loop that outputs the password
+  // for loop that provides the user with their password
   var finalPassword = "";
   for (var i = 0; i < confirmLength; i++) {
     var index = Math.floor(Math.random() * passwordSelections.length);
