@@ -15,7 +15,9 @@ var generatePassword = function () {
 
   var confirmLength = parseInt(window.prompt("How long would you like your password to be? Please choose a length between 8 and 128 characters."));
   // length confirmation
-  if (confirmLength <= 7 || confirmLength >= 129 || confirmLength == "") {
+  console.log(typeof confirmLength);
+  console.log(confirmLength);
+  if (confirmLength <= 7 || confirmLength >= 129 || isNaN(confirmLength)) {
       window.alert("You must choose a length between 8 and 128 characters. Please try again.");
       generatePassword();
     }
