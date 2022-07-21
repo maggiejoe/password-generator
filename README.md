@@ -15,8 +15,14 @@ I am taking steps to understand JavaScript better outside of class by taking fre
 
 
 ## Deployment Link
-https://maggiejoe.github.io/password-generator/
+* Click [here](https://maggiejoe.github.io/password-generator/) to view my deployable link!
+* Click [here](https://github.com/maggiejoe/password-generator.git) to view my github repo!
 
+
+## Screenshot
+Below is a screenshot of the beginning of my application
+
+![](./assets/images/pass-generator.png)
 
 ## Citation
 I used the bootcamp module in addition to the robot gladiators program as a reference. 
